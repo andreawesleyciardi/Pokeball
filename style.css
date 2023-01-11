@@ -1,0 +1,124 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ball--container {
+    width: 400px;
+    min-width: 400px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    perspective: 1200px;
+    perspective-origin: 50% 50%;
+}
+
+.ball--container:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 110%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+    transform: rotateX(90deg) translateZ(-150px) translateY(61%) translateX(8%);
+}
+
+@keyframes bounce {
+    from {transform: translateY(0px);}
+    to {transform: translateY(-50vh);}
+}
+
+@keyframes shadow {
+    from {opacity: 1;}
+    to {opacity: 0.2;}
+}
+
+.ball--container.bouncing:hover .ball {
+    animation: bounce 1s ease infinite alternate;
+}
+
+.ball--container.bouncing:hover:before {
+    opacity: 0.2;
+    animation: shadow 1s ease infinite alternate;
+}
+
+.ball {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    
+    background: #FFFFFF;
+    background: radial-gradient(farthest-corner at 100px 40px, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 46.8%, rgba(0,0,0,1) 47%, rgba(0,0,0,1) 51.8%, rgba(255,255,255,1) 52%, rgba(255,255,255,1) 100%);
+    background-size: 150%;
+    transform: translateY(0px);
+}
+
+.ball:before {
+    content: "";
+    width: 101%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+    box-shadow: 5px 5px 30px rgb(0 0 0 / 25%), 21px 20px 40px rgb(255 255 255 / 30%) inset, -21px -20px 40px rgb(0 0 0 / 20%) inset;
+    background: radial-gradient(circle at 100px 100px, rgba(255,255,255,0.35) 10%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.4));
+}
+
+.ball:after {
+    content: "";
+    width: 75px;
+    aspect-ratio: 1;
+    margin: 30%;
+    background: rgba(255, 255, 255, 15%);
+    border-radius: 50%;
+    transform: translateX(-57px) translateY(-85px) skewX(-34deg) skewY(-4deg);
+    position: absolute;
+    z-index: 3;
+    box-shadow: 0px 0px 17px rgb(255 255 255 / 11%), 4px 4px 3px rgb(255 255 255 / 7%) inset;
+}
+
+.ball--button {
+    width: 110px;
+    aspect-ratio: 1;
+    margin: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(20 20 20);
+    border-radius: 50%;
+    transform: translateX(100px) translateY(83px) skewX(0deg) skewY(-6deg);
+    position: absolute;
+    z-index: 3;
+    box-shadow: -2px -2px 1px rgb(47 47 47), -3px -2px 1px rgb(20 20 20), 3px 2px 5px rgb(0 0 0 / 0.3);
+}
+
+.ball--button:before {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    width: 70px;
+    aspect-ratio: 1;
+    background-color: #E0E0E0;
+    border-radius: 50%;
+    transform: translate(6px, 4px);
+    box-shadow: -1px -2px 0px rgb(255 255 255), -2px -2px 0px rgb(241 241 241), -5px -3px 0px rgb(239 239 239);
+}
+
+.ball--button:after {
+    content: "";
+    position: absolute;
+    z-index: 6;
+    width: 50px;
+    aspect-ratio: 1;
+    background-color: #E0E0E0;
+    border-radius: 50%;
+    transform: translate(11px, 8px);
+    box-shadow: -1px -2px 0px rgb(255 255 255), -2px -2px 0px rgb(241 241 241), -4px -3px 0px rgb(222 222 222), -5px -4px 0px rgb(179 179 179 / 60%), 3px 2px 6px rgb(0 0 0 / 50%), -3px -3px 8px rgb(0 0 0 / 20%) inset;
+}
