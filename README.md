@@ -1,4 +1,4 @@
-# Pokemon - Pokeball
+# Pokeball
 
 CSS-Only art project with animation.
 
